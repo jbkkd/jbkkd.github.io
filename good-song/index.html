@@ -40,7 +40,8 @@
                 windowHeight: window.innerHeight,
                 timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
                 referrer: document.referrer,
-                url: window.location.href
+                url: window.location.href,
+                domain: window.location.hostname
             };
 
             // Get IP and location info
@@ -79,6 +80,7 @@
             localStorage.setItem('lastTelegramSent', now.toString());
 
             const message = `🎵 New visitor to good-song page!
+🌐 Domain: ${userData.domain || 'Unknown'}
 
 📊 User Details:
 • IP: ${userData.ip || 'Unknown'}
@@ -95,6 +97,7 @@
 • Color Depth: ${userData.colorDepth}
 
 🌐 Browser Info:
+• Full URL: ${userData.url}
 • Referrer: ${userData.referrer || 'Direct'}
 • Cookies: ${userData.cookieEnabled ? 'Enabled' : 'Disabled'}
 • Online: ${userData.onLine ? 'Yes' : 'No'}
